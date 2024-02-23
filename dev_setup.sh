@@ -7,7 +7,7 @@ pip install uv
 echo "Setting up python environment"
 uv venv
 source .venv/bin/activate
-uv pip install -r requirements.txt
+uv pip install -r backend/requirements.txt
 
 #install and set up gcloud
 echo "Setting up gcloud"
