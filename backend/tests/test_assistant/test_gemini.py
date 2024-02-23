@@ -1,10 +1,15 @@
-from backend.assistant.gemini import generate_response, init
-from vertexai.preview import generative_models
+from backend.assistant import gemini
+from vertexai.preview.generative_models import ChatSession
+
+def test_init_chat():
+    chat = gemini.init_chat()
+    assert chat is not None
 
 def test_generate_response():
-    response = generate_response("Hello")
+    response = gemini.generate_response("Hello, how are you?")
     assert isinstance(response, str)
 
-def test_init():
-    chat = init()
-    assert isinstance(chat, generative_models.ChatSession)
+def test_generate_chat_response():
+    chat = gemini.init_chat()
+    response = gemini.generate_chat_response(chat, "Hello, how are you?")
+    assert isinstance(response, str)
